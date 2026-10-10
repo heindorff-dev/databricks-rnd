@@ -1,0 +1,18 @@
+resources:
+  jobs:
+    tag_rnd_schemas:
+      name: tag_rnd_schemas
+      tags:
+        RnD: ""
+      tasks:
+        - task_key: apply_governed_tags
+          notebook_task:
+            notebook_path: ../../src/tag_rnd_schemas.py
+            base_parameters:
+              catalog: ${var.catalog}
+              unite_bronze_schema: ${resources.schemas.unite_bronze.name}
+              unite_silver_schema: ${resources.schemas.unite_silver.name}
+              unite_gold_schema: ${resources.schemas.unite_gold.name}
+              dx_bronze_schema: ${resources.schemas.dx_bronze.name}
+              dx_silver_schema: ${resources.schemas.dx_silver.name}
+              dx_gold_schema: ${resources.schemas.dx_gold.name}

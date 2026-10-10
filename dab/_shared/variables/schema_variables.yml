@@ -1,0 +1,13 @@
+variables:
+  unite_bronze_schema:
+    default: "unite_bronze"
+  unite_silver_schema:
+    default: "unite_silver"
+  unite_gold_schema:
+    default: "unite_gold"
+  dx_bronze_schema:
+    default: "dx_bronze"
+  dx_silver_schema:
+    default: "dx_silver"
+  dx_gold_schema:
+    default: "dx_gold"

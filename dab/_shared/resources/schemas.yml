@@ -1,0 +1,49 @@
+resources:
+  schemas:
+    unite_bronze:
+      name: ${var.unite_bronze_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Unite bronze data"
+      grants:
+        - principal: grp-rnd-bronze-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    unite_silver:
+      name: ${var.unite_silver_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Unite silver data"
+      grants:
+        - principal: grp-rnd-silver-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    unite_gold:
+      name: ${var.unite_gold_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Unite gold data"
+      grants:
+        - principal: grp-rnd-gold-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    dx_bronze:
+      name: ${var.dx_bronze_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D DX bronze data"
+      grants:
+        - principal: grp-rnd-bronze-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    dx_silver:
+      name: ${var.dx_silver_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D DX silver data"
+      grants:
+        - principal: grp-rnd-silver-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    dx_gold:
+      name: ${var.dx_gold_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D DX gold data"
+      grants:
+        - principal: grp-rnd-gold-reader
+          privileges: [SELECT, USE_SCHEMA]

@@ -1,0 +1,23 @@
+# Databricks notebook source
+dbutils.widgets.text("catalog", "")
+dbutils.widgets.text("unite_bronze_schema", "")
+dbutils.widgets.text("unite_silver_schema", "")
+dbutils.widgets.text("unite_gold_schema", "")
+dbutils.widgets.text("dx_bronze_schema", "")
+dbutils.widgets.text("dx_silver_schema", "")
+dbutils.widgets.text("dx_gold_schema", "")
+
+catalog = dbutils.widgets.get("catalog")
+unite_bronze_schema = dbutils.widgets.get("unite_bronze_schema")
+unite_silver_schema = dbutils.widgets.get("unite_silver_schema")
+unite_gold_schema = dbutils.widgets.get("unite_gold_schema")
+dx_bronze_schema = dbutils.widgets.get("dx_bronze_schema")
+dx_silver_schema = dbutils.widgets.get("dx_silver_schema")
+dx_gold_schema = dbutils.widgets.get("dx_gold_schema")
+
+spark.sql(f"ALTER SCHEMA {catalog}.{unite_bronze_schema} SET TAGS ('RnD')")
+spark.sql(f"ALTER SCHEMA {catalog}.{unite_silver_schema} SET TAGS ('RnD')")
+spark.sql(f"ALTER SCHEMA {catalog}.{unite_gold_schema} SET TAGS ('RnD')")
+spark.sql(f"ALTER SCHEMA {catalog}.{dx_bronze_schema} SET TAGS ('RnD')")
+spark.sql(f"ALTER SCHEMA {catalog}.{dx_silver_schema} SET TAGS ('RnD')")
+spark.sql(f"ALTER SCHEMA {catalog}.{dx_gold_schema} SET TAGS ('RnD')")

@@ -1,0 +1,21 @@
+targets:
+  dev:
+    mode: development
+    default: true
+    permissions:
+      - group_name: grp-developer
+        level: CAN_MANAGE
+
+    variables:
+      catalog: rnd_dev
+      pause_status: PAUSED
+      unite_bronze_schema: "dev_${workspace.current_user.short_name}_unite_bronze"
+      unite_silver_schema: "dev_${workspace.current_user.short_name}_unite_silver"
+      unite_gold_schema: "dev_${workspace.current_user.short_name}_unite_gold"
+      dx_bronze_schema: "dev_${workspace.current_user.short_name}_dx_bronze"
+      dx_silver_schema: "dev_${workspace.current_user.short_name}_dx_silver"
+      dx_gold_schema: "dev_${workspace.current_user.short_name}_dx_gold"
+
+    workspace:
+      host: https://dbc-5346a843-c2e6.cloud.databricks.com/
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/dev
