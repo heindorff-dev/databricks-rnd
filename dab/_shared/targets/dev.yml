@@ -9,6 +9,7 @@ targets:
     variables:
       catalog: rnd_dev
       pause_status: PAUSED
+      environment: development
       unite_bronze_schema: "dev_${workspace.current_user.short_name}_unite_bronze"
       unite_silver_schema: "dev_${workspace.current_user.short_name}_unite_silver"
       unite_gold_schema: "dev_${workspace.current_user.short_name}_unite_gold"
