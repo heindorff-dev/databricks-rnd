@@ -1,13 +1,58 @@
 variables:
-  unite_bronze_schema:
-    default: "unite_bronze"
-  unite_silver_schema:
-    default: "unite_silver"
-  unite_gold_schema:
-    default: "unite_gold"
-  dx_bronze_schema:
-    default: "dx_bronze"
-  dx_silver_schema:
-    default: "dx_silver"
-  dx_gold_schema:
-    default: "dx_gold"
+  # Bronze: one schema per source system
+  benchling_bronze_schema:
+    default: "benchling_bronze"
+  labware_bronze_schema:
+    default: "labware_bronze"
+  jira_rd_bronze_schema:
+    default: "jira_rd_bronze"
+  planview_bronze_schema:
+    default: "planview_bronze"
+  veeva_vault_bronze_schema:
+    default: "veeva_vault_bronze"
+  medidata_rave_bronze_schema:
+    default: "medidata_rave_bronze"
+  patent_db_bronze_schema:
+    default: "patent_db_bronze"
+  equipment_iot_bronze_schema:
+    default: "equipment_iot_bronze"
+
+  # Silver: one schema per source system
+  benchling_silver_schema:
+    default: "benchling_silver"
+  labware_silver_schema:
+    default: "labware_silver"
+  jira_rd_silver_schema:
+    default: "jira_rd_silver"
+  planview_silver_schema:
+    default: "planview_silver"
+  veeva_vault_silver_schema:
+    default: "veeva_vault_silver"
+  medidata_rave_silver_schema:
+    default: "medidata_rave_silver"
+  patent_db_silver_schema:
+    default: "patent_db_silver"
+  equipment_iot_silver_schema:
+    default: "equipment_iot_silver"
+
+  # Gold: one schema per data product
+  research_portfolio_gold_schema:
+    default: "research_portfolio_gold"
+  rd_financials_gold_schema:
+    default: "rd_financials_gold"
+  experimentation_gold_schema:
+    default: "experimentation_gold"
+  lab_quality_gold_schema:
+    default: "lab_quality_gold"
+  clinical_trials_gold_schema:
+    default: "clinical_trials_gold"
+  regulatory_affairs_gold_schema:
+    default: "regulatory_affairs_gold"
+  ip_portfolio_gold_schema:
+    default: "ip_portfolio_gold"
+  equipment_utilization_gold_schema:
+    default: "equipment_utilization_gold"
+
+  # Governance: ABAC mask functions
+  governance_schema:
+    default: "governance"

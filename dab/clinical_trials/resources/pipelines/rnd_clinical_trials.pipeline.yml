@@ -1,0 +1,18 @@
+resources:
+  pipelines:
+    rnd_clinical_trials_pipeline:
+      name: rnd_clinical_trials
+      catalog: ${var.catalog}
+      schema: ${var.clinical_trials_gold_schema}
+      serverless: true
+      continuous: false
+      root_path: ../../src
+      libraries:
+        - glob:
+            include: ../../src/**
+      configuration:
+        catalog: ${var.catalog}
+        medidata_rave_bronze_schema: ${var.medidata_rave_bronze_schema}
+        medidata_rave_silver_schema: ${var.medidata_rave_silver_schema}
+        planview_silver_schema: ${var.planview_silver_schema}
+        clinical_trials_gold_schema: ${var.clinical_trials_gold_schema}

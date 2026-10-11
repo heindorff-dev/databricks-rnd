@@ -1,0 +1,16 @@
+resources:
+  pipelines:
+    rnd_rd_financials_pipeline:
+      name: rnd_rd_financials
+      catalog: ${var.catalog}
+      schema: ${var.rd_financials_gold_schema}
+      serverless: true
+      continuous: false
+      root_path: ../../src
+      libraries:
+        - glob:
+            include: ../../src/**
+      configuration:
+        catalog: ${var.catalog}
+        planview_silver_schema: ${var.planview_silver_schema}
+        rd_financials_gold_schema: ${var.rd_financials_gold_schema}

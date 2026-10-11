@@ -10,12 +10,30 @@ targets:
       catalog: rnd_dev
       pause_status: PAUSED
       environment: development
-      unite_bronze_schema: "dev_${workspace.current_user.short_name}_unite_bronze"
-      unite_silver_schema: "dev_${workspace.current_user.short_name}_unite_silver"
-      unite_gold_schema: "dev_${workspace.current_user.short_name}_unite_gold"
-      dx_bronze_schema: "dev_${workspace.current_user.short_name}_dx_bronze"
-      dx_silver_schema: "dev_${workspace.current_user.short_name}_dx_silver"
-      dx_gold_schema: "dev_${workspace.current_user.short_name}_dx_gold"
+      benchling_bronze_schema: "dev_${workspace.current_user.short_name}_benchling_bronze"
+      labware_bronze_schema: "dev_${workspace.current_user.short_name}_labware_bronze"
+      jira_rd_bronze_schema: "dev_${workspace.current_user.short_name}_jira_rd_bronze"
+      planview_bronze_schema: "dev_${workspace.current_user.short_name}_planview_bronze"
+      veeva_vault_bronze_schema: "dev_${workspace.current_user.short_name}_veeva_vault_bronze"
+      medidata_rave_bronze_schema: "dev_${workspace.current_user.short_name}_medidata_rave_bronze"
+      patent_db_bronze_schema: "dev_${workspace.current_user.short_name}_patent_db_bronze"
+      equipment_iot_bronze_schema: "dev_${workspace.current_user.short_name}_equipment_iot_bronze"
+      benchling_silver_schema: "dev_${workspace.current_user.short_name}_benchling_silver"
+      labware_silver_schema: "dev_${workspace.current_user.short_name}_labware_silver"
+      jira_rd_silver_schema: "dev_${workspace.current_user.short_name}_jira_rd_silver"
+      planview_silver_schema: "dev_${workspace.current_user.short_name}_planview_silver"
+      veeva_vault_silver_schema: "dev_${workspace.current_user.short_name}_veeva_vault_silver"
+      medidata_rave_silver_schema: "dev_${workspace.current_user.short_name}_medidata_rave_silver"
+      patent_db_silver_schema: "dev_${workspace.current_user.short_name}_patent_db_silver"
+      equipment_iot_silver_schema: "dev_${workspace.current_user.short_name}_equipment_iot_silver"
+      research_portfolio_gold_schema: "dev_${workspace.current_user.short_name}_research_portfolio_gold"
+      rd_financials_gold_schema: "dev_${workspace.current_user.short_name}_rd_financials_gold"
+      experimentation_gold_schema: "dev_${workspace.current_user.short_name}_experimentation_gold"
+      lab_quality_gold_schema: "dev_${workspace.current_user.short_name}_lab_quality_gold"
+      clinical_trials_gold_schema: "dev_${workspace.current_user.short_name}_clinical_trials_gold"
+      regulatory_affairs_gold_schema: "dev_${workspace.current_user.short_name}_regulatory_affairs_gold"
+      ip_portfolio_gold_schema: "dev_${workspace.current_user.short_name}_ip_portfolio_gold"
+      equipment_utilization_gold_schema: "dev_${workspace.current_user.short_name}_equipment_utilization_gold"
 
     workspace:
       host: https://dbc-5346a843-c2e6.cloud.databricks.com/

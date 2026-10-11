@@ -1,0 +1,17 @@
+resources:
+  pipelines:
+    rnd_regulatory_affairs_pipeline:
+      name: rnd_regulatory_affairs
+      catalog: ${var.catalog}
+      schema: ${var.regulatory_affairs_gold_schema}
+      serverless: true
+      continuous: false
+      root_path: ../../src
+      libraries:
+        - glob:
+            include: ../../src/**
+      configuration:
+        catalog: ${var.catalog}
+        veeva_vault_bronze_schema: ${var.veeva_vault_bronze_schema}
+        veeva_vault_silver_schema: ${var.veeva_vault_silver_schema}
+        regulatory_affairs_gold_schema: ${var.regulatory_affairs_gold_schema}

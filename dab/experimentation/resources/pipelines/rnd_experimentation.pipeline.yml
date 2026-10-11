@@ -1,0 +1,18 @@
+resources:
+  pipelines:
+    rnd_experimentation_pipeline:
+      name: rnd_experimentation
+      catalog: ${var.catalog}
+      schema: ${var.experimentation_gold_schema}
+      serverless: true
+      continuous: false
+      root_path: ../../src
+      libraries:
+        - glob:
+            include: ../../src/**
+      configuration:
+        catalog: ${var.catalog}
+        benchling_bronze_schema: ${var.benchling_bronze_schema}
+        benchling_silver_schema: ${var.benchling_silver_schema}
+        planview_silver_schema: ${var.planview_silver_schema}
+        experimentation_gold_schema: ${var.experimentation_gold_schema}

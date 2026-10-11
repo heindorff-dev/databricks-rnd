@@ -11,9 +11,16 @@ resources:
             notebook_path: ../../src/tag_rnd_schemas.py
             base_parameters:
               catalog: ${var.catalog}
-              unite_bronze_schema: ${resources.schemas.unite_bronze.name}
-              unite_silver_schema: ${resources.schemas.unite_silver.name}
-              unite_gold_schema: ${resources.schemas.unite_gold.name}
-              dx_bronze_schema: ${resources.schemas.dx_bronze.name}
-              dx_silver_schema: ${resources.schemas.dx_silver.name}
-              dx_gold_schema: ${resources.schemas.dx_gold.name}
+              schemas: >-
+                ${resources.schemas.benchling_bronze.name},${resources.schemas.labware_bronze.name},${resources.schemas.jira_rd_bronze.name},${resources.schemas.planview_bronze.name},${resources.schemas.veeva_vault_bronze.name},${resources.schemas.medidata_rave_bronze.name},${resources.schemas.patent_db_bronze.name},${resources.schemas.equipment_iot_bronze.name},${resources.schemas.benchling_silver.name},${resources.schemas.labware_silver.name},${resources.schemas.jira_rd_silver.name},${resources.schemas.planview_silver.name},${resources.schemas.veeva_vault_silver.name},${resources.schemas.medidata_rave_silver.name},${resources.schemas.patent_db_silver.name},${resources.schemas.equipment_iot_silver.name},${resources.schemas.research_portfolio_gold.name},${resources.schemas.rd_financials_gold.name},${resources.schemas.experimentation_gold.name},${resources.schemas.lab_quality_gold.name},${resources.schemas.clinical_trials_gold.name},${resources.schemas.regulatory_affairs_gold.name},${resources.schemas.ip_portfolio_gold.name},${resources.schemas.equipment_utilization_gold.name},${resources.schemas.governance.name}
+
+        # Creates the governed tag 'pii' (tag policy), the mask function and the ABAC policy.
+        - task_key: apply_pii_policy
+          depends_on:
+            - task_key: apply_governed_tags
+          notebook_task:
+            notebook_path: ../../src/apply_pii_policy.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${resources.schemas.governance.name}
+              exempt_group: grp-rnd-sensitive

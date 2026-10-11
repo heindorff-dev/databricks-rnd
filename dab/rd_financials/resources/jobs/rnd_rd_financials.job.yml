@@ -1,0 +1,34 @@
+resources:
+  jobs:
+    rnd_rd_financials:
+      name: rnd_rd_financials
+      description: R&D financials data product. Has no source system of its own; reads the planview silver tables, so run rnd_research_portfolio first.
+      max_concurrent_runs: 1
+      tags:
+        "Research and Development": ""
+        environment: ${var.environment}
+      parameters:
+        - name: schemas
+          default: ${var.rd_financials_gold_schema}
+      tasks:
+        - task_key: refresh_gold
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.rnd_rd_financials_pipeline.id}
+
+        - task_key: tag_tables
+          depends_on:
+            - task_key: refresh_gold
+          notebook_task:
+            notebook_path: ../../../_shared/ops/tag_rnd_tables.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schemas: "{{job.parameters.schemas}}"
+
+        - task_key: column_metadata
+          depends_on:
+            - task_key: tag_tables
+          notebook_task:
+            notebook_path: ../../metadata/column_metadata.sql
+            base_parameters:
+              catalog: ${var.catalog}
+              rd_financials_gold_schema: ${var.rd_financials_gold_schema}

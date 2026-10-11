@@ -1,0 +1,17 @@
+resources:
+  pipelines:
+    rnd_ip_portfolio_pipeline:
+      name: rnd_ip_portfolio
+      catalog: ${var.catalog}
+      schema: ${var.ip_portfolio_gold_schema}
+      serverless: true
+      continuous: false
+      root_path: ../../src
+      libraries:
+        - glob:
+            include: ../../src/**
+      configuration:
+        catalog: ${var.catalog}
+        patent_db_bronze_schema: ${var.patent_db_bronze_schema}
+        patent_db_silver_schema: ${var.patent_db_silver_schema}
+        ip_portfolio_gold_schema: ${var.ip_portfolio_gold_schema}

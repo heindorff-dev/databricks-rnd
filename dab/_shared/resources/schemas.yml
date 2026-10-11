@@ -1,49 +1,205 @@
 resources:
   schemas:
-    unite_bronze:
-      name: ${var.unite_bronze_schema}
+    # ---------- Bronze (source systems) ----------
+    benchling_bronze:
+      name: ${var.benchling_bronze_schema}
       catalog_name: ${var.catalog}
-      comment: "R&D Unite bronze data"
+      comment: "R&D Benchling (ELN experiments) bronze data (raw source extracts)"
       grants:
         - principal: grp-rnd-bronze-reader
           privileges: [SELECT, USE_SCHEMA]
 
-    unite_silver:
-      name: ${var.unite_silver_schema}
+    labware_bronze:
+      name: ${var.labware_bronze_schema}
       catalog_name: ${var.catalog}
-      comment: "R&D Unite silver data"
-      grants:
-        - principal: grp-rnd-silver-reader
-          privileges: [SELECT, USE_SCHEMA]
-
-    unite_gold:
-      name: ${var.unite_gold_schema}
-      catalog_name: ${var.catalog}
-      comment: "R&D Unite gold data"
-      grants:
-        - principal: grp-rnd-gold-reader
-          privileges: [SELECT, USE_SCHEMA]
-
-    dx_bronze:
-      name: ${var.dx_bronze_schema}
-      catalog_name: ${var.catalog}
-      comment: "R&D DX bronze data"
+      comment: "R&D LabWare (LIMS samples, assays, results) bronze data (raw source extracts)"
       grants:
         - principal: grp-rnd-bronze-reader
           privileges: [SELECT, USE_SCHEMA]
 
-    dx_silver:
-      name: ${var.dx_silver_schema}
+    jira_rd_bronze:
+      name: ${var.jira_rd_bronze_schema}
       catalog_name: ${var.catalog}
-      comment: "R&D DX silver data"
+      comment: "R&D Jira R&D (project tasks) bronze data (raw source extracts)"
+      grants:
+        - principal: grp-rnd-bronze-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    planview_bronze:
+      name: ${var.planview_bronze_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Planview (portfolio, budget, resources) bronze data (raw source extracts)"
+      grants:
+        - principal: grp-rnd-bronze-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    veeva_vault_bronze:
+      name: ${var.veeva_vault_bronze_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Veeva Vault (regulatory documents and submissions) bronze data (raw source extracts)"
+      grants:
+        - principal: grp-rnd-bronze-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    medidata_rave_bronze:
+      name: ${var.medidata_rave_bronze_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Medidata Rave (clinical EDC) bronze data (raw source extracts)"
+      grants:
+        - principal: grp-rnd-bronze-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    patent_db_bronze:
+      name: ${var.patent_db_bronze_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Patent database (intellectual property) bronze data (raw source extracts)"
+      grants:
+        - principal: grp-rnd-bronze-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    equipment_iot_bronze:
+      name: ${var.equipment_iot_bronze_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Equipment IoT (instrument telemetry) bronze data (raw source extracts)"
+      grants:
+        - principal: grp-rnd-bronze-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    # ---------- Silver (source systems) ----------
+    benchling_silver:
+      name: ${var.benchling_silver_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Benchling (ELN experiments) silver data (cleaned, typed, documented)"
       grants:
         - principal: grp-rnd-silver-reader
           privileges: [SELECT, USE_SCHEMA]
 
-    dx_gold:
-      name: ${var.dx_gold_schema}
+    labware_silver:
+      name: ${var.labware_silver_schema}
       catalog_name: ${var.catalog}
-      comment: "R&D DX gold data"
+      comment: "R&D LabWare (LIMS samples, assays, results) silver data (cleaned, typed, documented)"
+      grants:
+        - principal: grp-rnd-silver-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    jira_rd_silver:
+      name: ${var.jira_rd_silver_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Jira R&D (project tasks) silver data (cleaned, typed, documented)"
+      grants:
+        - principal: grp-rnd-silver-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    planview_silver:
+      name: ${var.planview_silver_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Planview (portfolio, budget, resources) silver data (cleaned, typed, documented)"
+      grants:
+        - principal: grp-rnd-silver-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    veeva_vault_silver:
+      name: ${var.veeva_vault_silver_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Veeva Vault (regulatory documents and submissions) silver data (cleaned, typed, documented)"
+      grants:
+        - principal: grp-rnd-silver-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    medidata_rave_silver:
+      name: ${var.medidata_rave_silver_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Medidata Rave (clinical EDC) silver data (cleaned, typed, documented)"
+      grants:
+        - principal: grp-rnd-silver-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    patent_db_silver:
+      name: ${var.patent_db_silver_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Patent database (intellectual property) silver data (cleaned, typed, documented)"
+      grants:
+        - principal: grp-rnd-silver-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    equipment_iot_silver:
+      name: ${var.equipment_iot_silver_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D Equipment IoT (instrument telemetry) silver data (cleaned, typed, documented)"
+      grants:
+        - principal: grp-rnd-silver-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    # ---------- Gold (data products) ----------
+    research_portfolio_gold:
+      name: ${var.research_portfolio_gold_schema}
+      catalog_name: ${var.catalog}
+      comment: "Research portfolio data product: programs, projects, milestones, portfolio status and task throughput"
       grants:
         - principal: grp-rnd-gold-reader
           privileges: [SELECT, USE_SCHEMA]
+
+    rd_financials_gold:
+      name: ${var.rd_financials_gold_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D financials data product: monthly spend, budget versus actual and spend by program"
+      grants:
+        - principal: grp-rnd-gold-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    experimentation_gold:
+      name: ${var.experimentation_gold_schema}
+      catalog_name: ${var.catalog}
+      comment: "Experimentation data product: experiments, outcomes, success rates and scientist productivity"
+      grants:
+        - principal: grp-rnd-gold-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    lab_quality_gold:
+      name: ${var.lab_quality_gold_schema}
+      catalog_name: ${var.catalog}
+      comment: "Lab quality data product: sample results, assay pass rates, turnaround time and out-of-spec results"
+      grants:
+        - principal: grp-rnd-gold-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    clinical_trials_gold:
+      name: ${var.clinical_trials_gold_schema}
+      catalog_name: ${var.catalog}
+      comment: "Clinical trials data product: trials, enrollment, site performance and adverse events"
+      grants:
+        - principal: grp-rnd-gold-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    regulatory_affairs_gold:
+      name: ${var.regulatory_affairs_gold_schema}
+      catalog_name: ${var.catalog}
+      comment: "Regulatory affairs data product: submissions, approval cycle time and document compliance"
+      grants:
+        - principal: grp-rnd-gold-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    ip_portfolio_gold:
+      name: ${var.ip_portfolio_gold_schema}
+      catalog_name: ${var.catalog}
+      comment: "IP portfolio data product: patents, status mix and expiry forecast"
+      grants:
+        - principal: grp-rnd-gold-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    equipment_utilization_gold:
+      name: ${var.equipment_utilization_gold_schema}
+      catalog_name: ${var.catalog}
+      comment: "Equipment utilization data product: instrument usage, utilization by lab and downtime events"
+      grants:
+        - principal: grp-rnd-gold-reader
+          privileges: [SELECT, USE_SCHEMA]
+
+    # ---------- Governance ----------
+    governance:
+      name: ${var.governance_schema}
+      catalog_name: ${var.catalog}
+      comment: "R&D governance objects: ABAC column mask functions for PII"
+      grants:
+        - principal: account users
+          privileges: [EXECUTE, USE_SCHEMA]

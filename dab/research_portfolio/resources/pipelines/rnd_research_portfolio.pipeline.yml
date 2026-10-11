@@ -1,0 +1,19 @@
+resources:
+  pipelines:
+    rnd_research_portfolio_pipeline:
+      name: rnd_research_portfolio
+      catalog: ${var.catalog}
+      schema: ${var.research_portfolio_gold_schema}
+      serverless: true
+      continuous: false
+      root_path: ../../src
+      libraries:
+        - glob:
+            include: ../../src/**
+      configuration:
+        catalog: ${var.catalog}
+        planview_bronze_schema: ${var.planview_bronze_schema}
+        jira_rd_bronze_schema: ${var.jira_rd_bronze_schema}
+        planview_silver_schema: ${var.planview_silver_schema}
+        jira_rd_silver_schema: ${var.jira_rd_silver_schema}
+        research_portfolio_gold_schema: ${var.research_portfolio_gold_schema}

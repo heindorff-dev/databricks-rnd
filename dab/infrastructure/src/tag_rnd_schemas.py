@@ -1,23 +1,9 @@
 # Databricks notebook source
 dbutils.widgets.text("catalog", "")
-dbutils.widgets.text("unite_bronze_schema", "")
-dbutils.widgets.text("unite_silver_schema", "")
-dbutils.widgets.text("unite_gold_schema", "")
-dbutils.widgets.text("dx_bronze_schema", "")
-dbutils.widgets.text("dx_silver_schema", "")
-dbutils.widgets.text("dx_gold_schema", "")
+dbutils.widgets.text("schemas", "")
 
 catalog = dbutils.widgets.get("catalog")
-unite_bronze_schema = dbutils.widgets.get("unite_bronze_schema")
-unite_silver_schema = dbutils.widgets.get("unite_silver_schema")
-unite_gold_schema = dbutils.widgets.get("unite_gold_schema")
-dx_bronze_schema = dbutils.widgets.get("dx_bronze_schema")
-dx_silver_schema = dbutils.widgets.get("dx_silver_schema")
-dx_gold_schema = dbutils.widgets.get("dx_gold_schema")
+schemas = [s.strip() for s in dbutils.widgets.get("schemas").split(",") if s.strip()]
 
-spark.sql(f"ALTER SCHEMA {catalog}.{unite_bronze_schema} SET TAGS ('Research and Development')")
-spark.sql(f"ALTER SCHEMA {catalog}.{unite_silver_schema} SET TAGS ('Research and Development')")
-spark.sql(f"ALTER SCHEMA {catalog}.{unite_gold_schema} SET TAGS ('Research and Development')")
-spark.sql(f"ALTER SCHEMA {catalog}.{dx_bronze_schema} SET TAGS ('Research and Development')")
-spark.sql(f"ALTER SCHEMA {catalog}.{dx_silver_schema} SET TAGS ('Research and Development')")
-spark.sql(f"ALTER SCHEMA {catalog}.{dx_gold_schema} SET TAGS ('Research and Development')")
+for schema in schemas:
+    spark.sql(f"ALTER SCHEMA `{catalog}`.`{schema}` SET TAGS ('Research and Development')")

@@ -1,0 +1,17 @@
+resources:
+  pipelines:
+    rnd_lab_quality_pipeline:
+      name: rnd_lab_quality
+      catalog: ${var.catalog}
+      schema: ${var.lab_quality_gold_schema}
+      serverless: true
+      continuous: false
+      root_path: ../../src
+      libraries:
+        - glob:
+            include: ../../src/**
+      configuration:
+        catalog: ${var.catalog}
+        labware_bronze_schema: ${var.labware_bronze_schema}
+        labware_silver_schema: ${var.labware_silver_schema}
+        lab_quality_gold_schema: ${var.lab_quality_gold_schema}

@@ -1,0 +1,15 @@
+bundle:
+  name: rnd_rd_financials
+  engine: direct
+
+include:
+  - ../_shared/targets/*.yml
+  - ../_shared/variables/*.yml
+  - resources/pipelines/*.pipeline.yml
+  - resources/jobs/*.job.yml
+
+# Shared notebooks (table tagging) live outside the bundle root.
+sync:
+  paths:
+    - .
+    - ../_shared/ops
